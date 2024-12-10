@@ -1,3 +1,6 @@
+//adding modules
+import {cart} from '../data/cart.js'
+import {products} from '../data/products.js'
 
 let productsHTML='';
 products.forEach((value,index)=>{
@@ -51,13 +54,16 @@ products.forEach((value,index)=>{
 });
 let productGrid=document.querySelector('.products-grid')
 productGrid.innerHTML+=productsHTML;
-let added=document.querySelector('.added-to-cart')
+
 
 let buttonClicked = document.querySelectorAll('.add-to-cart-button')
-
+let added=document.querySelectorAll('.added-to-cart')
 
  buttonClicked.forEach((button,index)=>{
+  // console.log(button);
   button.addEventListener('click',()=>{
+   
+    added[index].style.opacity=1;
     addToCart()})
 
 function addToCart(){
@@ -82,8 +88,11 @@ if(matchingItem)
           
             {productId:productId, quantity:1}
         )
-        // added.style.opacity=1;
+        
     }
+
+   
+        
 
     let cartQuantity=0;
     cart.forEach((item, index)=>
